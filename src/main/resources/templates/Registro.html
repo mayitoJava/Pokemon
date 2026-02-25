@@ -102,23 +102,24 @@
             </a>
 
             <h3 class="title">REGISTRO</h3>
-
-            <form th:action="@{/registro}" method="post">
+            <form th:action="@{/registro}"
+                  th:object="${usuario}"
+                  method="post">
 
                 <input type="text"
-                       name="nombre"
+                       th:field="*{nombre}"
                        class="form-control"
                        placeholder="NOMBRE"
                        required>
 
                 <input type="email"
-                       name="correo"
+                       th:field="*{email}"
                        class="form-control"
                        placeholder="CORREO"
                        required>
 
                 <input type="password"
-                       name="password"
+                       th:field="*{password}"
                        class="form-control"
                        placeholder="CONTRASEÑA"
                        required>

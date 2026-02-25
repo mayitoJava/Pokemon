@@ -11,13 +11,13 @@ public class AuthController {
         return "Login";
     }
 
-   @GetMapping("/registro")
-    public String mostrarRegistro() {
-        return "Registro";
-    }
-
     @GetMapping("/admin")
     public String admin() {
+        return "Index";
+    }
+    
+       @GetMapping("/user")
+    public String user() {
         return "Index";
     }
 }

@@ -1,6 +1,7 @@
 package PokeApi.Programacion.ML;
 
 import jakarta.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -19,7 +20,7 @@ public class Usuario {
     private String password;
 
     @Column(name = "enabled")
-    private Integer enabled = 1;
+    private Integer enabled = 0; // 0 = desactivado
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -27,7 +28,7 @@ public class Usuario {
             joinColumns = @JoinColumn(name = "usuario_id"),
             inverseJoinColumns = @JoinColumn(name = "rol_id")
     )
-    private Set<Rol> roles;
+    private Set<Rol> roles = new HashSet<>(); // 🔥 IMPORTANTE
 
     public boolean isEnabled() {
         return enabled == 1;
@@ -81,5 +82,5 @@ public class Usuario {
         this.roles = roles;
     }
 
-   
+    
 }
