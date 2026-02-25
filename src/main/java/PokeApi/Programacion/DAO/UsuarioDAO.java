@@ -1,0 +1,10 @@
+package PokeApi.Programacion.DAO;
+
+import PokeApi.Programacion.ML.Usuario;
+import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.Optional;
+
+public interface UsuarioDAO extends JpaRepository<Usuario, Long> {
+
+    Optional<Usuario> findByEmail(String email);
+}
