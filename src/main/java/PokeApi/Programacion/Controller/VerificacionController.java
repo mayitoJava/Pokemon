@@ -25,20 +25,18 @@ public class VerificacionController {
                                   RedirectAttributes redirectAttributes) {
 
         try {
-            // 1️⃣ Obtener email del token
+            // Email del token
             String email = jwtService.validarToken(token);
 
-            // 2️⃣ Buscar usuario
+            // Busca el usuario
             Optional<Usuario> usuarioOpt = usuarioDAO.findByEmail(email);
 
             if (usuarioOpt.isPresent()) {
 
                 Usuario usuario = usuarioOpt.get();
 
-                // 3️⃣ Activar usuario
                 usuario.setEnabled(1);
 
-                // 4️⃣ Guardar cambios
                 usuarioDAO.save(usuario);
 
                 redirectAttributes.addFlashAttribute("success",

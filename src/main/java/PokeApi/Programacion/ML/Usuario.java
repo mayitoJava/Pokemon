@@ -28,7 +28,7 @@ public class Usuario {
             joinColumns = @JoinColumn(name = "usuario_id"),
             inverseJoinColumns = @JoinColumn(name = "rol_id")
     )
-    private Set<Rol> roles = new HashSet<>(); // 🔥 IMPORTANTE
+    private Set<Rol> roles = new HashSet<>(); 
 
     public boolean isEnabled() {
         return enabled == 1;
