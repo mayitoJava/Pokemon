@@ -56,8 +56,8 @@ public class RegistroController {
 
         usuario.setEnabled(0);
 
-        Rol rolUser = rolDAO.findByNombre("ROLE_USER"); // Usa el nombre exacto en tu BD
-        usuario.getRoles().add(rolUser); // 🔥 NO usar Set.of()
+        Rol rolUser = rolDAO.findByNombre("User"); 
+        usuario.getRoles().add(rolUser); 
 
         usuarioDAO.save(usuario);
 
